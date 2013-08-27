@@ -1,6 +1,8 @@
-import numpy
-from numpy import dot, array, sum, zeros, outer, any, apply_along_axis,argmax,ones,newaxis,zeros_like,transpose,amax,sqrt
+'''
+Implementacion del metodo de clustering Weighted Fuzzy C-Means.
+'''
 
+from numpy import dot, array, sum, zeros, outer, any, apply_along_axis,argmax,ones,newaxis,zeros_like,transpose,amax,sqrt
 from FCM import FuzzyCMeans
 from time import clock
 

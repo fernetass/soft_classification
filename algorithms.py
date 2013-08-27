@@ -1,5 +1,5 @@
 '''
-Various functions and algorithms for processing spectral data.
+Funciones y algoritmos para el procesamiento de imagenes multiespectrales
 '''
 import numpy as np
 from spectral import *
@@ -42,7 +42,7 @@ def lookup_table():
     table = [black,blue,red,green,yellow,maroon,white,cyan,magenta,seagreen,purple,coral,aquamarine,orchid,sienna,chartreuse]
     return table
 
-    # image_path="C:\\Users\\jose\\Desktop\\imagenes\\remanso"
+   
         
 def fuzzy_clusterings(k=3,type='e', emax=1.e-10, imax=15 ,me=None, m=2.,image_path='C:\\Users\\jose\\Desktop\\imagenes\\SAN-FLOAT', img_dest= "C:\\Users\\jose\\Desktop\\",verbose=False,win_size=3):
     '''
@@ -90,7 +90,6 @@ def fuzzy_clusterings(k=3,type='e', emax=1.e-10, imax=15 ,me=None, m=2.,image_pa
     fcm(emax=emax,imax=imax)
     tiempo_final = clock()
     membership = fcm.mu
-    print membership.shape
     (N,C) = membership.shape
     mem = membership**2
     cp = 0.
@@ -142,7 +141,6 @@ def random_fcm_membership(nrsamples,nrclass):
    
 
 def fmle(image_path="C:\\Users\\jose\\Desktop\\imagenes\\remanso", roi_path="C:\\Users\\jose\\Desktop\\imagenes\\remanso_map_verifi", gt_path="C:\\Users\\jose\\Desktop\\imagenes\\remanso_map_entre",img_dest= "C:\\Users\\jose\\Desktop\\",m=1.5):       
-#def fmle(image_path="C:\\Users\\jose\\Desktop\\imagenes\\SAN-FLOAT", roi_path="C:\\Users\\jose\\Desktop\\imagenes\\ground_truth_sj",gt_path="C:\\Users\\jose\\Desktop\\imagenes\\roi_eval_sj", img_dest= "C:\\Users\\jose\\Desktop\\",m=1.5): 
     ''''
     Ejecucion del algoritmo fmle .
     Parameteros:
@@ -247,8 +245,10 @@ def save_image(img_dest_dir, filename, img):
     img_obj = None
 
     print 'File saved to "' + img_dest_path + '".'
+	
+	
+	
     
-#def super(type='e', emax=1.e-10, imax=150,m=2.,image_path="C:\\Users\\jose\\Desktop\\imagenes\\SAN-FLOAT", gt_path="C:\\Users\\jose\\Desktop\\imagenes\\ground_truth_sj", roi_path="C:\\Users\\jose\\Desktop\\imagenes\\roi_eval_sj",img_dest="C:\\Users\\jose\\Desktop\\",win_size = 3):   
 def super(type='e',emax=1.e-10, imax=150,m=2.,image_path="C:\\Users\\jose\\Desktop\\imagenes\\remanso", roi_path="C:\\Users\\jose\\Desktop\\imagenes\\remanso_map_verifi", gt_path="C:\\Users\\jose\\Desktop\\imagenes\\remanso_map_entre",img_dest="C:\\Users\\jose\\Desktop\\",win_size = 3):
     ''''
     Ejecucion del algoritmo FCM,GKFCM,WFCM, de naturaleza supervisada .
@@ -290,7 +290,6 @@ def super(type='e',emax=1.e-10, imax=150,m=2.,image_path="C:\\Users\\jose\\Deskt
     me=fcm.means
     ind_clas =fcm.index_class
     (_,nclas) = membership.shape 
-    print nclas
     
     cen=fcm.c 
     count=0
@@ -319,17 +318,12 @@ def super(type='e',emax=1.e-10, imax=150,m=2.,image_path="C:\\Users\\jose\\Deskt
     ne= len(inds)
     roi_test = zeros(ne)
     img_test = zeros(ne)
-    co=0
     for i in range(inds.shape[0]):      
         x = roi[inds[i,0],inds[i,1]]
         roi_test[i]= ind_clas[x]
         y = w[inds[i][0], inds[i][1]]
         img_test[i]= int(y)
-        if y == 4:
-            co=co+1
-    print co     
-        
-    
+
     
     if type == 'e':
         imagen = save_image(img_dest, "classified_image_by_SFCM", classified)

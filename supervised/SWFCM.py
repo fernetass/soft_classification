@@ -1,9 +1,11 @@
+'''
+Implementacion del metodo de clasificacion supervisado Weighted Fuzzy C-Means.
+'''
+
 import numpy
 from numpy import dot, array, sum, zeros, outer, any, apply_along_axis,argmax,ones,newaxis,zeros_like,transpose,amax,sqrt
 from soft_classification.unsupervised.WFCM  import WFuzzyCMeans,euclidean,dot_density_function,weights_matrix
-
 from SFCM import SupFuzzyCMeans,mean_std,calc_stats_class
-
 from time import clock
 
 
@@ -79,7 +81,6 @@ class SupWFuzzyCMeans(WFuzzyCMeans):
         i = self.iter
         if i==0 :
             c = self.means
-            print i
             self.iter += 1 
         else: 
             c = self.c

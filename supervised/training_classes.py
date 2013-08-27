@@ -1,3 +1,8 @@
+'''
+En este modulo se proporcionan una serie de funciones que tienen como fin la creacion
+de una clase especial ’TrainingClassSet’, que contendra informacion
+estadistica de las distintas clases de entrenamientos para el metodo FMLE.
+'''
 import numpy
 import spectral.io.envi as envi
 

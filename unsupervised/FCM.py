@@ -1,4 +1,7 @@
-﻿import numpy
+﻿'''
+Implementacion del metodo de clustering Fuzzy C-means.
+'''
+import numpy
 from numpy import dot, array, sum, zeros, outer, any, apply_along_axis,argmax,ones,newaxis,zeros_like,transpose,sqrt
 
 

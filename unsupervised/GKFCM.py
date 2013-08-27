@@ -1,3 +1,7 @@
+
+'''
+Implementacion del metodo de clustering Gustafson-Kessel.
+'''
 ################################################################################
 import numpy
 from numpy import dot, array, sum, zeros, outer, any, apply_along_axis,argmax,ones,newaxis,zeros_like,transpose

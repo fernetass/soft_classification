@@ -1,3 +1,6 @@
+'''
+Implementacion del metodo de clasificacion supervisado de Gustafson-Kessel.
+'''
 import numpy
 from numpy import dot, array, sum, zeros, outer, any, apply_along_axis,argmax,ones,newaxis,zeros_like,transpose
 from numpy.linalg import det,inv

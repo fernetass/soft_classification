@@ -1,3 +1,6 @@
+'''
+Implementacion del metodo parametrico de naturaleza supervisada FMLE.
+'''
 import numpy
 
 class Classifier:
@@ -107,7 +110,7 @@ class FuzzyGaussianClassifier(Classifier):
             degree[q] =(probs[q])/sum   
         ind=argmax(degree)
         max_class= argmax(degree)
-        if degree[ind] < 0.75:
+        if degree[ind] < 0.45:
            max_class= d
         return max_class
 

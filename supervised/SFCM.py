@@ -1,3 +1,6 @@
+'''
+Implementacion del metodo de clasificacion supervisado Fuzzy C-means.
+'''
 import numpy
 from soft_classification.unsupervised.FCM  import FuzzyCMeans
 from numpy import dot, array, sum, zeros, outer, any, apply_along_axis,argmax,ones,newaxis,zeros_like,transpose,sqrt
